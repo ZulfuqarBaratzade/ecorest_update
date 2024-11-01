@@ -1,0 +1,397 @@
+.services-page {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+}
+
+.left-filter {
+    width: 20%;
+    border-right: 1px solid whitesmoke;
+}
+
+.left-search {
+    background-color: whitesmoke;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.left-search h2 {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.left-search form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.left-search input,
+.left-search select,
+.left-search button {
+    padding: 10px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+}
+
+.left-search button {
+    cursor: pointer;
+    font-weight: 600;
+    transition: opacity 0.7s;
+}
+
+.left-filter button:hover {
+    opacity: 0.8;
+}
+
+.left-input {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    top: 40px;
+}
+
+.left-input h2 {
+    margin-left: 20px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.left-input div {
+    margin: 10px;
+    padding: 10px;
+}
+
+.left-input [type="checkbox"] {
+    position: relative;
+    top: 4px;
+    width: 1.2em;
+    height: 1.2rem;
+    accent-color: #005f9b;
+}
+
+.left-input div label {
+    margin-left: 20px;
+}
+
+.left-search > h2,
+form,
+input,
+label {
+    display: inline;
+    background-color: transparent;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.right-services {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.search-info h2 {
+    color: #333;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.service-option {
+    position: relative;
+    left: 50px;
+    width: 90%;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+}
+
+.service-option .service-img {
+    padding: 10px;
+}
+
+.service-img img {
+    border-radius: 12px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    width: 100%;
+    max-width: 200px;
+}
+
+.service-info {
+    margin-left: 20px;
+    flex-grow: 1;
+    
+}
+.service-info h2{
+    font-weight: 500;
+    font-size: 24px;
+    padding: 4px;
+}
+.service-info p{
+    color: #333;
+}
+.service-price {
+    text-align: right;
+}
+
+.service-price p {
+    font-size: 12px;
+}
+
+.service-detail {
+    width: fit-content;
+    position: relative;
+}
+
+.service-detail button {
+    padding: 10px 50px;
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    background-color: #2daa2d;
+    cursor: pointer;
+    color: #fff;
+}
+
+.service-detail button:hover{
+    opacity: 0.8;
+}
+.center {
+    position: relative;
+    top: 40px;
+    text-align: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    background-color: #005f9b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination button:hover:not(:disabled) {
+    opacity: 0.8;
+  }
+  
+  .pagination span {
+    font-size: 18px;
+    margin: 0 10px;
+    font-weight: bold;
+  }
+/* Responsive Design */
+
+/* Tablet screens */
+@media (max-width: 1200px) {
+    .services-page {
+        flex-direction: column;
+        min-height: 200vh;
+    }
+
+    .left-filter {
+        width: 100%;
+        border-right: none;
+        margin-bottom: 20px;
+    }
+
+    .left-search {
+        width: 100%;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    }
+
+    .left-search h2 {
+        text-align: center;
+    }
+
+    .left-search form {
+        width: 90%;
+    }
+
+    .right-services {
+        width: 100%;
+    }
+
+    .search-info h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .service-option {
+        width: 95%;
+        flex-direction: row;
+        align-items: center;
+        left: 0;
+        padding: 20px;
+    }
+
+    .service-option .service-img {
+        padding: 10px;
+    }
+
+    .service-info {
+        margin-left: 20px;
+        text-align: left;
+    }
+
+    .service-price {
+        text-align: right;
+    }
+
+    .service-detail {
+        width: 20%;
+    }
+
+    
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+    .services-page{
+        min-height: 320vh;
+    }
+    .services-page{
+        justify-content: flex-start;
+    }
+    .pagination button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin: 0 5px;
+      }
+    
+      .pagination span {
+        font-size: 16px;
+        margin: 0 5px;
+      }
+    .left-search {
+        padding: 10px;
+    }
+
+    .left-search h2 {
+        font-size: 12px;
+    }
+
+    .left-search form {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .search-info h2 {
+        font-size: 18px;
+    }
+
+    .service-option {
+        width: 95%;
+        padding: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .service-img img {
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .service-info {
+        font-size: 12px;
+        width: 95%;
+        padding: 10px;
+    }
+
+    .service-price {
+        font-size: 12px;
+        width: 100%;
+        text-align: right;
+        margin-top: 10px;
+    }
+
+    .service-detail {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+}
+
+/* Small mobile screens */
+@media (max-width: 530px) {
+    .services-page{
+        /* border: 1px solid;   */
+    }
+    .pagination {
+        flex-direction: column;
+        gap: 0;
+      }
+    
+      .pagination button {
+        width: 100%;
+        margin: 5px 0;
+      }
+    
+      .pagination span {
+        margin: 10px 0;
+      }
+      .services-page{
+        min-height: 250vh;
+        justify-content:space-between;
+      }
+    .service-option {
+        flex-direction: column;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .service-info {
+        font-size: 10px;
+        padding: 0;
+    }
+
+    .service-price {
+        font-size: 10px;
+        text-align: right;
+        margin-top: 10px;
+    }
+
+    .service-detail button {
+        width: 100%;
+        padding: 6px;
+        font-size: 12px;
+    }
+
+
+
+}

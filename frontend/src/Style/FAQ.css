@@ -1,0 +1,92 @@
+/* FAQ.css */
+.faq-container {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 60%;
+    margin-left: 20%;
+}
+
+.faq-item {
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    padding: 10px;
+    background-color: #fff; /* Ensures background is visible */
+    border-radius: 8px; /* Added rounded corners for a better look */
+}
+
+.faq-question {
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Added padding for better touch targets on mobile */
+    font-size: 18px; /* Adjusted font size for better readability */
+}
+
+.faq-answer {
+    padding: 10px 0;
+    text-align: left; /* Better readability */
+    font-size: 16px; /* Adjusted font size */
+}
+
+.arrow {
+    transition: transform 0.3s ease; /* Shortened transition for snappier interaction */
+    font-size: 24px;
+}
+
+.arrow.down {
+    transform: rotate(0);
+}
+
+.arrow.up {
+    transform: rotate(180deg);
+}
+
+/* Responsive Design */
+/* @media (max-width: 1200px) {
+    .faq-question {
+        font-size: 16px;
+    }
+    .faq-answer {
+        font-size: 14px;
+    }
+} */
+@media (max-width: 768px) {
+    .faq-container {
+        padding: 10px;
+        margin: 0;
+        width: 100%;
+    }
+    .faq-question {
+        font-size: 14px;
+    }
+    .faq-answer {
+        font-size: 13px;
+    }
+    .arrow {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq-container {/* Further adjusted top positioning for smaller screens */
+        gap: 15px;
+        margin: 0;
+        width: 100%;
+         
+    }
+    
+    .faq-question {
+        font-size: 12px;
+    }
+    .faq-answer {
+        font-size: 12px;
+    }
+    .arrow {
+        font-size: 18px;
+    }
+
+}

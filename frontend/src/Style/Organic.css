@@ -1,0 +1,98 @@
+.organic {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.organic h2 {
+    font-size: 20px;
+    padding: 20px;
+    font-weight: 500;
+    display: inline;
+}
+
+.organic-wrapper {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden; /* Prevents vertical scrolling */
+    scroll-behavior: smooth;
+    gap: 40px;
+    padding: 20px 0;
+    width: 50%;
+    scrollbar-width: none; /* For Firefox */
+}
+
+.organic-wrapper::-webkit-scrollbar {
+    display: none; /* Hides scrollbar for WebKit browsers (Chrome, Safari) */
+}
+
+.organic-item {
+    width: 100%; /* Default width for small screens */
+    max-width: 400px;
+    height: auto;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    transition: 0.3s;
+    border-radius: 12px;
+    text-align: left;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+}
+
+.organic-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.organic-item h3,
+.organic-item p,
+.organic-item pre {
+    color: #333;
+    margin-top: 5px;
+}
+
+.organic-item h3 {
+    font-size: 16px;
+}
+
+.organic-item p {
+    font-size: 12px;
+}
+
+.organic-item pre {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001;
+    font-size: 18px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    display: none;
+}
+
+.scroll-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.scroll-button.left {
+    left: 20px;
+}
+
+.scroll-button.right {
+    right: 20px;
+}

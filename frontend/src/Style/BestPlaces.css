@@ -1,0 +1,139 @@
+.bestplaces {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    padding: 0 20px;
+
+
+}
+.bestplaces h2{
+    font-weight: 500;
+}
+
+.places-wrapper {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden; /* Prevents vertical scrolling */
+    scroll-behavior: smooth;
+    gap: 40px;
+    padding: 20px 0;
+    width: 60%;
+    scrollbar-width: none; /* For Firefox */
+
+}
+
+.places-wrapper::-webkit-scrollbar {
+    display: none; /* Hides scrollbar for WebKit browsers (Chrome, Safari) */
+}
+
+.places {
+    width: 100%; /* Default width for small screens */
+    max-width: 400px;
+    height: auto;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    transition: 0.3s;
+    border-radius: 12px;
+    text-align: left;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+
+}
+
+
+.places img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+.places h3, p, pre {
+    color: #333;
+    margin-top: 5px;
+}
+
+.places h3 {
+    font-size: 16px;
+
+}
+
+.places p {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.places pre {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.scroll-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1001;
+    font-size: 18px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.scroll-button.left {
+    left: 20px;
+}
+
+.scroll-button.right {
+    right: 20px;
+}
+
+/* Responsive Design */
+
+@media (min-width: 600px) {
+    .places {
+        width: 70%; /* Increase width for medium screens */
+        max-width: 500px;
+    }
+    .bestplaces h2{
+        font-size: 14px;
+        display: inline;
+    }
+}
+
+@media (min-width: 768px) {
+    .places {
+        width: 50%; /* Increase width for larger screens */
+        max-width: 600px;
+    }
+
+    .bestplaces h2 {
+        font-size: 24px;
+    }
+
+    .places h3 {
+        font-size: 18px;
+    }
+
+    .places p,
+    .places pre {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .places-item {
+        width: 40%; /* Increase width for very large screens */
+        max-width: 800px;
+    }
+}

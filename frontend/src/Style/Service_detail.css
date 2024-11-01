@@ -1,0 +1,230 @@
+.service-description{
+    margin-top: 40px;
+    display: flex;
+    gap: 40px;
+    padding: 10px;
+}
+.left-order{
+    width: 40%;
+    height: 1000px;
+    margin-left: 80px;
+    border-right: 1px solid whitesmoke;
+    box-shadow:0px 2px 8px rgba(0,0,0,0.16);
+    border-radius: 12px;
+    padding: 20px 0 0 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+}
+.left-order input{
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow:0px 2px 8px rgba(0,0,0,0.16);
+    border: none;
+    transition: all 0.7s;
+    
+}
+.left-order input:focus {
+    border: 1px solid #2daa2d;
+    box-shadow: 0px 2px 12px #2daa2d;
+    outline: none;
+}
+.step1,.step2,.step3{
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: 1px solid rgb(212, 208, 208);
+}
+.step1{
+    height: 200px;
+}
+.step2{
+    height: 396px;
+}
+.step3 p,.step3 h2{
+    color: #000;
+
+
+}
+.order-description{
+    width: 50%;
+    height: 900px;
+    box-shadow:0px 2px 8px rgba(0,0,0,0.16);
+    border-radius: 12px;
+
+    /* border: 1px solid; */
+}
+.order-main{
+    width: 900px;
+    height: 900px;
+    /* margin:20px 0 0 30px; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow:0px 2px 8px rgba(0,0,0,0.16);
+
+    
+    
+}
+.order-location{
+    padding: 10px;
+    color: #333;
+    font-weight: 600;
+    display: inline;
+}
+.order-main img{
+    /* margin:40px 0 0 0; */
+    box-shadow:0px 2px 8px rgba(0,0,0,0.16);
+    border-radius: 12px;
+    width: 100%;
+    padding: 10px;
+}
+.order-main > h2{
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+}
+.order-main h2, .order-main p{
+    padding-left: 20px;
+}
+.date-order,.order-price{
+    border-bottom: 1px solid rgb(212, 208, 208);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 40px;
+}
+.date-order p,.order-price p{
+    width: 300px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    color: #333;
+}
+.click-order{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.click-order button{
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    box-shadow:0px 2px 8px rgba(0,0,0,0.16);
+    background-color: #2daa2d;
+    color: #ffff;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 1;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+    max-width: 500px; /* Butonun maksimum genişliğini belirle */
+    width: 100%;
+
+}
+.click-order button:hover{
+    opacity: 0.8;
+}
+.phone-number {
+    color: blue; /* Numara mavi renk olsun */
+    text-decoration: underline; /* Altı çizili olsun */
+    cursor: pointer; /* Fare üzerine gelince tıklanabilir olduğunu belli et */
+    display: inline-block;
+    transition: color 0.3s ease;
+  }
+  
+  .phone-number:hover {
+    color: darkblue; /* Üzerine gelince renk değiştir */
+  }
+/* Base styles remain unchanged */
+
+/* Responsive Design */
+
+/* Tablet screens */
+@media (max-width: 1200px) {
+    .service-description {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .left-order {
+        width: 80%;
+        margin-left: 0;
+        height: auto;
+        padding: 20px;
+        border-right: none;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    }
+
+    .order-description {
+        width: 80%;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    }
+
+    .order-main  {
+        width: 100%;
+        left: 0;
+        padding: 0 10px;
+        gap: 10px;
+    }
+
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+    .left-order {
+        width: 90%;
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    .order-description {
+        width: 90%;
+    }
+
+    .order-main img {
+        top: 20px;
+        width: 100%;
+    }
+
+    .order-main > h2 {
+        font-size: 20px;
+        top: 20px;
+    }
+    
+
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+    .left-order {
+        width: 100%;
+        padding: 10px;
+
+    }
+
+    .order-description {
+        width: 100%;
+    }
+
+    .order-main img {
+        top: 10px;
+    }
+
+    .order-main > h2 {
+        font-size: 18px;
+        top: 10px;
+    }
+
+
+}

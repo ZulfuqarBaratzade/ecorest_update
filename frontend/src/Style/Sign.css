@@ -1,0 +1,176 @@
+.sign-content{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.sign {
+    width: 90%;
+    max-width: 1000px;
+    /* transform: translate(50%, 50%); */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    padding: 20px; 
+    box-sizing: border-box; }
+
+.sign-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    max-width: 600px; /* Maximum width for large screens *//* Auto height for flexibility */
+    gap: 15px; /* Increased gap for better spacing */
+    padding: 20px; /* Added padding for better spacing */
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+}
+
+.sign-form h2 {
+    position: relative; /* Adjusted position */
+    top: 0; /* Centered the heading */
+    margin-bottom: 20px; /* Added margin for spacing */
+    font-size: 24px; /* Slightly reduced font size */
+    letter-spacing: 1px; /* Slightly reduced letter-spacing */
+    font-weight: 500;
+    text-align: center; /* Centered heading */
+}
+
+.sign-form label {
+    text-align: left;
+    padding: 7px;
+    font-size: 14px; /* Slightly reduced font size */
+}
+
+.sign-form input, .sign-form select, .sign-form option {
+    padding: 15px; /* Slightly reduced padding */
+    border-radius: 12px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    border: none;
+    transition: all 0.7s;
+    font-size: 14px; /* Slightly reduced font size */
+}
+
+.sign-form input:focus, .sign-form select:focus {
+    border: 1px solid #2daa2d;
+    box-shadow: 0px 2px 12px #2daa2d;
+    outline: none;
+}
+
+.check_box {
+    padding: 10px;
+    text-align: left;
+    font-size: 14px; /* Slightly reduced font size */
+}
+
+.check_box [type="checkbox"] {
+    position: relative;
+    top: 4px;
+    width: 1.2em;
+    height: 1.2rem;
+    accent-color: #2daa2d;
+}
+
+.check_box a {
+    color: #333;
+    padding-left: 10px;
+    font-size: 14px; /* Adjusted font size */
+}
+
+.sign-form button {
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    background-color: #2daa2d;
+    color: #fff;
+    font-size: 14px;
+    opacity: 1;
+    transition: all 0.4s;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.sign-form button:hover {
+    opacity: 0.8;
+}
+
+.sign-form a {
+    color: #333;
+    font-weight: 300;
+    text-decoration: none;
+}
+
+.sign-form a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sign {
+        width: 95%; /* Increased width for smaller screens */
+        padding: 15px; /* Reduced padding */
+    }
+
+    .sign-form {
+        width: 100%; /* Full width for form */
+        padding: 15px; /* Reduced padding */
+    }
+
+    .sign-form h2 {
+        font-size: 22px; /* Further reduced font size */
+    }
+
+    .sign-form input, 
+    .sign-form select {
+        padding: 12px; /* Further reduced padding */
+        font-size: 13px; /* Further reduced font size */
+    }
+
+    .sign-form button {
+        padding: 10px;
+        font-size: 13px; /* Further reduced font size */
+    }
+
+    .sign-form a, 
+    .check_box a {
+        font-size: 13px; /* Further reduced font size */
+    }
+
+    .check_box {
+        font-size: 13px; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .sign {
+        width: 100%; /* Full width for very small screens */
+        padding: 10px; /* Further reduced padding */
+    }
+
+    .sign-form h2 {
+        font-size: 20px; /* Further reduced font size */
+    }
+
+    .sign-form input, 
+    .sign-form select {
+        padding: 10px; /* Further reduced padding */
+        font-size: 12px; /* Further reduced font size */
+    }
+
+    .sign-form button {
+        padding: 8px;
+        font-size: 12px; /* Further reduced font size */
+    }
+
+    .sign-form a, 
+    .check_box a {
+        font-size: 12px; /* Further reduced font size */
+    }
+
+    .check_box {
+        font-size: 12px; /* Adjusted font size */
+    }
+}

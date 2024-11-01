@@ -1,0 +1,254 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
+.main-search{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.main-search h2 {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 24px;
+}
+
+.main-search ul {
+  display: flex;
+  list-style-type: none;
+  gap: 20px;
+}
+
+.main-search ul li i {
+  font-size: 14px;
+  color: #333;
+}
+
+.main-search ul li button {
+  font-size: 14px;
+  color: #333;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding-bottom: 5px;
+  color: #333;
+  border: none;
+  cursor: pointer;
+
+}
+
+.main-search ul li button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  transition: left 0.35s ease-in-out;
+}
+
+.main-search ul li button:hover::before {
+  left: 0;
+}
+.search{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.search input {
+  text-align: center;
+  width: 100%;
+  padding: 15px;
+  padding-left: 38px;
+  width: 400px;
+  border-radius: 16px;
+  border: 1px solid #ccc;
+  /* Default border style */
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+  transition: all 0.8s;
+}
+
+.search input:focus {
+  border: 1px solid #2daa2d;
+  box-shadow: 0px 2px 12px #2daa2d;
+  outline: none;
+}
+
+.search i {
+  position: relative;
+  left: 180px;
+  left: 30px;
+  z-index: 111;
+}
+
+.search button {
+  position: relative;
+  left: -80px;
+  background-color: rgb(0, 161, 0);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  transition: all 0.8s;
+  cursor: pointer;
+}
+
+.search button:hover {
+  opacity: 0.5;
+}
+
+.news-banner {
+  width: 100%;/* Set a fixed height for the banner */
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* To hide overflowing images during transition */
+}
+
+.news-poster {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out; /* Fade transition */
+  text-align: center;
+  margin-top: 28vh;
+
+
+}
+.news-poster.active {
+  opacity: 1; /* Make the active slide visible */
+}
+
+.news-poster img {
+  width:100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+
+}
+.banner-con{
+  display: flex;
+  gap: 40px;
+  position: absolute;
+  top: 80%;
+  left: 40px;
+  background-color: #333;
+  border-radius: 2px;
+}
+.banner-con h2,.banner-con p{
+  background-color: transparent;
+  font-weight: 400;
+  color: #fff;
+}
+
+
+.news-poster a {
+  color: #333; /* Adjust text color for contrast */
+  padding:5px 20px 5px 20px;
+  border-radius: 12px;
+  text-decoration: none;
+
+}
+
+
+@media screen and (max-width: 768px ) {
+  .main-search ul li button {
+    font-size: 8px;
+  }
+  .news-poster{
+    margin-left: 10px;
+  }
+  .search input{
+    margin-left: 55px;
+  }
+  .search i{
+    left: 90px;
+  }
+ 
+ 
+
+}
+@media screen and (max-width: 570px ) {
+  .main{
+    height: 60vh;
+  }
+  .search input{
+    left: 45px;
+    padding: 10px;
+    padding-left: 38px;
+    width: 300px;
+    font-size: 10px;
+  }
+  .search i{
+    font-size: 10px;
+  }
+  .search > button{
+    left: -55px;
+    padding: 5px 10px 5px 10px;
+    font-size: 10px;
+  }
+  
+  .news-poster img{
+    width: 450px;
+    height: 350px;
+  }
+  .banner-con{
+    left: 10px;
+    font-size:8px;
+  }
+  .banner-con h2{
+    display: inline;
+  }
+
+
+}
+@media (max-width: 478px ) {
+
+  .main-search a{
+    text-decoration: none;
+  }
+  .main-search i{
+    margin: 0;
+    position: relative;
+    right: 15px;
+    width: 1px;
+    
+  }
+
+  .main-search li{
+    display: flex;
+  }
+  .search input{
+    left: 45px;
+    padding: 10px;
+    padding-left: 38px;
+    width: 300px;
+    font-size: 8px;
+  }
+  .search i{
+    font-size: 10px;
+
+  }
+  .search > button{
+    left: -55px;
+    padding: 5px 10px 5px 10px;
+    font-size: 10px;
+  }
+
+  
+  .news-poster img{
+    width: 350px;
+    height: 280px;
+    object-fit: cover;
+    }
+
+}
