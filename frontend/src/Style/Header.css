@@ -1,16 +1,22 @@
-.header{
-  width: 100%;
+.container{
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
   border-bottom: 1px solid #f0f0f0;
+}
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 1600px;
   
 }
+
 
 .header > .navbar > .nav-content{
   display: flex;
   list-style-type: none;
-  gap: 50px;
+  gap: 40px;
+  
   
 }
 .header > .navbar > .nav-content a{
@@ -56,7 +62,7 @@
   box-shadow:0px 2px 8px rgba(0,0,0,0.16); 
   display: flex;
   gap: 10px;
-  padding: 10px;
+
   
 }
 .signup li{
@@ -124,7 +130,11 @@
 }
 
 /* Responsive styles */
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1500px) {
+  .header{
+    justify-content: space-evenly;
+    min-width: 1000px;
+  }
   .burger-menu {
       display: flex;
   }
@@ -132,12 +142,10 @@
       display: none;
       flex-direction: column;
       align-items: center;
-      width: 100%;
       position: absolute;
+      top: 9%;
+      min-width: 1005px;
       z-index: 1111111;
-      top: 90px;
-      left: 0;
-      background: #ffffff;
       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
       
   }
@@ -165,9 +173,6 @@
       z-index: 11111;
       width: max-content;
   }
-  /* .lang_login{
-    border: 1px solid;
-  } */
   .signup .dropdown-menu{
     top: 70px;
     right: 10px;
@@ -188,6 +193,11 @@
 
 }
 @media screen and (max-width: 768px ) {
+  .header{
+    min-width: 700px;
+    justify-content: space-between;
+    
+  }
   .burger-menu {
       display: flex;
   }
@@ -195,12 +205,11 @@
       display: none;
       flex-direction: column;
       align-items: center;
-      width: 100%;
       position: absolute;
       z-index: 1111111;
-      top: 90px;
-      left: 0;
-      background: #ffffff;
+      min-width: 700px;
+      top:10%;
+      
       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
       
   }
@@ -237,33 +246,18 @@
   
 }
 
-@media screen and (max-width: 468px ) {
-  .logo{
+@media screen and (max-width: 600px ) {
+  /* .logo{
     position: relative;
     top: 10px;
 
 
-  }
-  
-  .burger-menu {
-      display: flex;
-      position: absolute;
-      left: 45%;
-      top: 30px;
-      height: 50px;
-  
-  }
+  } */
   .header{
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      height: 10vh;
-
-  }
-  .lang_login{
-    position: absolute;
-    left: 55%;
-    top: 28px;
+    min-width: 400px;
+    align-items: center;
+    justify-content: space-between;
+    
   }
   .lang a,.signup{
     padding: 10px 30px;
@@ -277,12 +271,11 @@
   .navbar {
       display: none;
       flex-direction: column;
-      width: 100%;
       position: absolute;
       align-items: center;
       z-index: 1111111;
-      top: 90px;
-      left: 0;
+      min-width: 400px;
+      top: 6%;
       background: #ffffff;
       box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
       
