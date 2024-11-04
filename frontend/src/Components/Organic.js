@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import "../Style/Hostels.css";
+import "../Style/Components/Organic.css";
 import { useNavigate } from "react-router-dom"; // React Router'dan useNavigate'i import edin
 import { useLanguage } from '../LanguageContext';
 function Organic() {
@@ -19,43 +19,56 @@ function Organic() {
             })
             .catch(error => console.error(language === 'az' ? "Kənd təsərrüfatı məhsulları yüklənmədi:" : "Error fetching organic items:", error));
         }, [language]);
-    const scroll = (direction) => {
-        const { current } = scrollRef;
-        if (direction === "left") {
-            current.scrollLeft -= 200;
-        } else {
-            current.scrollLeft += 200;
-        }
-    };
 
     const handleOrganicClick = (id) => {
         navigate(`/services/organicpro/${id}`); 
     };
+    const scrollLeft = () => {
+        if (scrollRef.current.scrollLeft === 0) {
+          // If already at the start, scroll to the end
+          scrollRef.current.scrollLeft = scrollRef.current.scrollWidth;
+        } else {
+          // Scroll to the left by 200px
+          scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
+        }
+      };
+    
+      const scrollRight = () => {
+        if (scrollRef.current.scrollLeft + scrollRef.current.clientWidth >= scrollRef.current.scrollWidth) {
+          // If already at the end, scroll to the start
+          scrollRef.current.scrollLeft = 0;
+        } else {
+          // Scroll to the right by 200px
+          scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
+        }
+      };
     
     return (
-        <div className="organic">
-            <h2>{language === 'az' ? "Kənd Təsərrüfatı Məhsulları" : "Agricultural Products"}</h2>
-            <button className="scroll-button left" onClick={() => scroll("left")}>
-                {"<"}
-            </button>
-            <div className="organic-wrapper" ref={scrollRef}>
-                {organicItems.map((item) => (
-                    <div 
-                        className="organic-item" 
-                        key={item.id} 
-                        onClick={() => handleOrganicClick(item.id)}
-                    >
-                        <img src={item.image_url} alt={item.product_name} />
-                        <div className="organic-content">
-                            <p>{item.location}</p>
-                            <pre>{item.price} {language === 'az' ? 'AZN' : 'AZN'}</pre>
+        <div className="container">
+            <div className="organic">
+                <div className="organic-heads">
+                    <h2>{language === 'az' ? "Kənd Təsərrüfatı Məhsulları" : "Agricultural Products"}</h2>
+                    <p>{language === 'az' ? "Kənd təsərrüfatı məhsulları sifariş edə bilərsiniz." :"You can order agricultural products."}</p>
+                </div>
+                <div className="organic-wrapper" ref={scrollRef}>
+                    {organicItems.map((item) => (
+                        <div 
+                            className="organic-item" 
+                            key={item.id} 
+                            onClick={() => handleOrganicClick(item.id)}
+                        >
+                            <div className="organic-img">
+                            <img src={item.image_url} alt={item.product_name} />
+                            </div>
+                            <div className="organic-content">
+                                <p>{item.location}</p>
+                                <pre>{item.price} {language === 'az' ? 'AZN' : 'AZN'}</pre>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
+           
             </div>
-            <button className="scroll-button right" onClick={() => scroll("right")}>
-                {">"}
-            </button>
         </div>
     );
 }

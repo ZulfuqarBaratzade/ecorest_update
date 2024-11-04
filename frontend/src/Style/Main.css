@@ -13,6 +13,7 @@
   align-items: center;
   gap: 20px;
   position: relative;
+  
 
   
 }
@@ -78,7 +79,7 @@
 .search{
   position: relative;
   width: 100%;
-  top: -40px;
+  top: -20px;
 }
 .search input {
   text-align: center;  
@@ -124,7 +125,9 @@
 .news-banner{
   position: relative;
   min-width: 1600px;
-  height:450px;
+  height:500px;
+  background-color: transparent;
+
 
 }
 .news-poster {

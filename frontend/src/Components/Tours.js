@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom"; // Yönlendirme için gerekli
-import "../Style/Hostels.css";
+import "../Style/Components/Tours.css";
 import { useLanguage } from '../LanguageContext';
 
 function Events() {
@@ -35,29 +35,30 @@ function Events() {
     };
     
     return (
-        <div className="tours">
-            <h2>{language === 'az' ? "Turlar və Masterklaslar" : "Tours and Masterclass"}</h2>
-            <button className="scroll-button left" onClick={() => scroll("left")}>
-                {"<"}
-            </button>
-            <div className="tours-wrapper" ref={scrollRef}>
-                {events.map((event) => (
-                    <div 
-                        className="tours-item" 
-                        key={event.id}
-                        onClick={() => handleEventsClick(event.id)}
-                    >
-                        <img src={event.image_url} alt={event.product_name} />
-                        <div className="tours-content">
-                            <p>{event.location}</p>
-                            <pre>{event.price} {language === 'az' ? "AZN" : "AZN"}</pre>
+        <div className="container">
+            <div className="tours">
+                <div className="tours-heads">
+                    <h2>{language === 'az' ? "Turlar və Masterklaslar" : "Tours and Masterclass"}</h2>
+                    <p>{language === 'az' ? "Həftəsonunu unudulmaz və əyləncəli keçirin, özünüzə kiçik bir macəra bəxş edin!" : "Make your weekend unforgettable and fun—treat yourself to a little adventure!"}</p>
+                </div>
+                <div className="tours-wrapper" ref={scrollRef}>
+                    {events.map((event) => (
+                        <div 
+                            className="tours-item" 
+                            key={event.id}
+                            onClick={() => handleEventsClick(event.id)}
+                        >
+                            <div className="tours-img">
+                            <img src={event.image_url} alt={event.product_name} />
+                            </div>
+                            <div className="tours-content">
+                                <p>{event.location}</p>
+                                <pre>{event.price} {language === 'az' ? "AZN" : "AZN"}</pre>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-            <button className="scroll-button right" onClick={() => scroll("right")}>
-                {">"}
-            </button>
         </div>
     );
 }

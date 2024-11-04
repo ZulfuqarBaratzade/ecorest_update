@@ -1,0 +1,128 @@
+.kitchen{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    width: 1600px;
+    position: relative;
+
+}
+
+.kitchen-wrapper {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    white-space: nowrap;
+    justify-content: center;
+
+}
+
+.kitchen-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.kitchen-heads {
+    margin-top: 10px;
+}
+
+.scroll-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+    position: absolute;
+    background-color: transparent;
+    top: 250px;
+    width: 100%;
+    z-index: 10;
+
+}
+
+.scroll-buttons button {
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #333;
+    border-radius: 50%;
+    font-size: 1.2em;
+    border: none;
+}
+.scroll-buttons i{
+    background-color: transparent;
+}
+
+.kitchen-heads h2 {
+    font-size: 24px;
+    line-height: 20px;
+    font-weight: 600;
+
+}
+
+.kitchen-heads p {
+    font-size: 16px;
+    line-height: 40px;
+    opacity: 0.7;
+}
+
+.kitchen-item {
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.kitchen-img img {
+    width: 500px;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
+}
+
+.kitchen-img:hover {
+    opacity: 0.9;
+}
+
+.kitchen-content p {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.kitchen-content pre {
+    font-size: 14px;
+    font-weight: 500;
+}
+@media screen and (max-width: 1500px) {
+    .kitchen{
+        width:1000px;
+        margin-top: 40px;
+    }
+}
+@media screen and (max-width: 768px ) {
+    .kitchen{
+        width: 700px;
+    }
+    .kitchen-heads h2{
+        line-height: 50px;
+    }
+    .kitchen-heads p{
+        line-height: 30px;
+    }
+    .kitchen-img img{
+        width: 400px;
+        height: 550px;
+    }
+    .scroll-buttons{
+        display: none;
+    }
+
+}
+@media screen and (max-width: 600px ) {
+    .kitchen{
+        width: 500px;
+    }
+
+}
