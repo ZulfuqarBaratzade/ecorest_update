@@ -27,7 +27,7 @@ function Kitchen() {
           scrollRef.current.scrollLeft = scrollRef.current.scrollWidth;
         } else {
           // Scroll to the left by 200px
-          scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
+          scrollRef.current.scrollBy({ left: -500, behavior: "smooth" });
         }
       };
     
@@ -37,7 +37,7 @@ function Kitchen() {
           scrollRef.current.scrollLeft = 0;
         } else {
           // Scroll to the right by 200px
-          scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
+          scrollRef.current.scrollBy({ left: 500, behavior: "smooth" });
         }
       };
     
@@ -54,9 +54,9 @@ function Kitchen() {
                     <p>{language ==='az' ? 'Bəzən sadəcə fərqli bir dadı yaşamaq üçün, yalnız o yemək üçün yola çıxa bilərsiniz.':'Sometimes, just to experience a unique flavor, you might set out on a journey for that one special dish.'}</p>
                 </div>
                 <div className="scroll-buttons">
-                    <button onClick={scrollLeft}><i className="fa-solid fa-arrow-left"></i></button>
-                    <button onClick={scrollRight}><i className="fa-solid fa-arrow-right"></i></button>
-                </div>
+                    <button onClick={scrollLeft}><i class="fa-solid fa-chevron-left"></i></button>
+                    <button onClick={scrollRight}><i class="fa-solid fa-chevron-right"></i></button>
+                </div>  
                 <div className="kitchen-wrapper" ref={scrollRef}>
                     {kitchenItems.map((item) => (
                         <div 

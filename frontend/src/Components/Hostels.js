@@ -27,23 +27,11 @@ function Hostels() {
   };
 
   const scrollLeft = () => {
-    if (scrollRef.current.scrollLeft === 0) {
-      // If already at the start, scroll to the end
-      scrollRef.current.scrollLeft = scrollRef.current.scrollWidth;
-    } else {
-      // Scroll to the left by 200px
       scrollRef.current.scrollBy({ left: -500, behavior: "smooth" });
-    }
   };
 
   const scrollRight = () => {
-    if (scrollRef.current.scrollLeft + scrollRef.current.clientWidth >= scrollRef.current.scrollWidth) {
-      // If already at the end, scroll to the start
-      scrollRef.current.scrollLeft = 0;
-    } else {
-      // Scroll to the right by 200px
       scrollRef.current.scrollBy({ left: 500, behavior: "smooth" });
-    }
   };
 
   return (
@@ -59,8 +47,8 @@ function Hostels() {
         </div>
 
         <div className="scroll-buttons">
-          <button onClick={scrollLeft}><i className="fa-solid fa-arrow-left"></i></button>
-          <button onClick={scrollRight}><i className="fa-solid fa-arrow-right"></i></button>
+          <button onClick={scrollLeft}><i class="fa-solid fa-chevron-left"></i></button>
+          <button onClick={scrollRight}><i class="fa-solid fa-chevron-right"></i></button>
         </div>
 
         <div className="hostels-wrapper" ref={scrollRef}>
