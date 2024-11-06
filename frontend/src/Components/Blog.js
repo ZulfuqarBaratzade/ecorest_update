@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../Style/Blog.css";
+import "../Style/Components/Blog.css";
 import { useLanguage } from "../LanguageContext";
 function Blog() {
   const [blogs, setBlogs] = useState([]);
@@ -20,12 +20,19 @@ function Blog() {
 
   return (
     <div className="container">
+      <div className="row">
       <div className="blog-banner">
         {blogs.map((banner, index) => (
           <div
             key={index}
             className={`blog-content ${index === currentIndex ? "active" : ""}`}
           >
+            <img
+              src={`https://ecorest.az/backend/images/${banner.image}`}
+              alt={banner.title}
+              className="blog-image"
+            />
+  
             <div className="blog-poster">
               <h2 className="blog-title">{banner.title}</h2>
               <p className="blog-text">
@@ -35,13 +42,10 @@ function Blog() {
                 </a>
               </p>
             </div>
-            <img
-              src={`https://ecorest.az/backend/images/${banner.image}`}
-              alt={banner.title}
-              className="blog-image"
-            />
+            
           </div>
         ))}
+      </div>
       </div>
     </div>
   );

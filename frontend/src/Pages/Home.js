@@ -18,9 +18,9 @@ function Home() {
     <Kitchen />
     <Tours />
     <Organic />
-    {/* <Blog />
+    <Blog />
     <FAQ />
-    <ContactForm /> */}
+    <ContactForm />
     </div>
   );
 }

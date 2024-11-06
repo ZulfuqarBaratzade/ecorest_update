@@ -129,7 +129,6 @@
 @media screen and (max-width: 650px ) {
     .hostels{
         width: 380px;
-        border: 1px solid;
     }
     .hostels-heads{
         text-align: center;
