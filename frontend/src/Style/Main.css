@@ -238,10 +238,10 @@
 }
 @media screen and (max-width: 600px ) {
   .main,.news-banner{
-    min-width: 400px;
+    min-width: 380px;
   }
   .news-poster img{
-    width: 380px;
+    width: 370px;
   }
   .news-banner h2{
     top: 50%;

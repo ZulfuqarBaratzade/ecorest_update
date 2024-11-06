@@ -126,9 +126,10 @@
     }
 
 }
-@media screen and (max-width: 600px ) {
+@media screen and (max-width: 650px ) {
     .hostels{
-        width: 400px;
+        width: 380px;
+        border: 1px solid;
     }
     .hostels-heads{
         text-align: center;

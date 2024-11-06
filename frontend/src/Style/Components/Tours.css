@@ -98,7 +98,7 @@
 }
 @media screen and (max-width: 1500px) {
     .tours{
-        width:1000px;
+        width:800px;
         margin-top: 40px;
     }
 }
@@ -110,12 +110,12 @@
     .tours-heads h2{
         line-height: 50px;
     }
+
     .tours-heads p{
         line-height: 30px;
-        padding: 5px;
     }
     .tours-img{
-        width: 300px;
+        width: 350px;
     }
     .tours-img img{
         width: 100%;
@@ -126,9 +126,9 @@
     }
 
 }
-@media screen and (max-width: 600px ) {
+@media screen and (max-width: 650px ) {
     .tours{
-        width: 400px;
+        width: 380px;
     }
     .tours-heads{
         text-align: center;

@@ -12,8 +12,9 @@
   display: flex;
   list-style-type: none;
   gap: 40px;
+  align-items: center;
   position: relative;
-  left: -60px;
+  
   
   
 }
@@ -22,6 +23,7 @@
   color: #333;
   opacity: 0.6;
   transition: all 0.3s;
+  
 }
 .header > .navbar > .nav-content a:hover{
   opacity: 1;
@@ -132,6 +134,7 @@
   .header{
     justify-content: space-evenly;
     min-width: 1000px;
+    align-items: center;
   }
   .burger-menu {
       display: flex;
@@ -255,7 +258,7 @@
   } */
  
   .header{
-    min-width: 400px;
+    min-width: 380px;
     align-items: center;
     justify-content: space-between;
     

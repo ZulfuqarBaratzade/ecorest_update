@@ -28,7 +28,6 @@
 
 .kitchen-heads {
     margin-top: 10px;
-    width: 400px;
 }
 
 .scroll-buttons {
@@ -128,9 +127,9 @@
     }
 
 }
-@media screen and (max-width: 600px ) {
+@media screen and (max-width: 650px ) {
     .kitchen{
-        width: 400px;
+        width: 380px;
     }
     .kitchen-heads{
         text-align: center;
