@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Style/Contact.css";
+import "../Style/Components/Contact.css";
 import { useLanguage } from "../LanguageContext";
 const ContactForm = () => {
   const [name, setName] = useState("");
