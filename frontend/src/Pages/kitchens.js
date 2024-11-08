@@ -5,15 +5,7 @@ import { useLanguage } from '../LanguageContext';
 function Services() {
   const [location, setLocation] = useState("");
   const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [guestCount, setGuestCount] = useState("");
   const { language } = useLanguage();
-  const [services, setServices] = useState({
-    qonaqlama: false,
-    metbex: false,
-    turlar: false,
-    kendteserrufatimehhsullari: false,
-  });
   const [result, setResult] = useState("");
   const [serviceItems, setServiceItems] = useState([]); // Hizmet verileri için state
   const navigate = useNavigate();
@@ -25,27 +17,17 @@ function Services() {
       .then(data => setServiceItems(data))
       .catch(error => console.error(language === 'az' ? "Verilər yüklənmədi:" : "Failed to load data:", error));
   }, [language]);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const servicesSelected = Object.keys(services)
-      .filter((service) => services[service])
-      .join(", ");
-
-    const resultText = `${location}, ${language === 'az' ? 'Başlama tarixi' : 'Start date'}: ${startDate},${guestCount} ${language === 'az' ? 'qonaq sayı' : 'guest count'}, ${servicesSelected}`;
-    setResult(resultText);
-  };
-
   const handleServiceClick = (id) => {
     navigate(`/services/kitchen/${id}`);
   };
 
   return (
+    <div className="container">
     <div className="services-page">
       <div className="left-filter">
         <div className="left-search">
           <h2>{language === 'az' ? 'Axtarış' : 'Search'}</h2>
-          <form onSubmit={handleSubmit}>
+          <form>
             <label>{language === 'az' ? 'Məkan' : 'Location'}</label>
             <select
                 value={location}
@@ -66,64 +48,8 @@ function Services() {
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
             />
-            <label>{language === 'az' ? 'Qonaq sayı' : 'Guest Count'}</label>
-            <input
-              type="number"
-              min={1}
-              value={guestCount}
-              onChange={(e) => setGuestCount(e.target.value)}
-            />
            <button type="submit">{language === 'az' ? 'Axtar' : 'Search'}</button>
           </form>
-        </div>
-        <div className="left-input">
-          <h2>{language === 'az' ? 'Xidmətlər' : 'Services'}</h2>
-          <div>
-            <input
-              type="checkbox"
-              checked={services.qonaqlama}
-              onChange={() =>
-                setServices({
-                  ...services,
-                  qonaqlama: !services.qonaqlama,
-                })
-              }
-            />
-            <label>{language === 'az' ? 'Qonaqlama' : 'Accommodation'}</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              checked={services.metbex}
-              onChange={() =>
-                setServices({ ...services, metbex: !services.metbex })
-              }
-            />
-            <label>{language === 'az' ? 'Mətbəx' : 'Kitchen'}</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              checked={services.turlar}
-              onChange={() =>
-                setServices({ ...services, turlar: !services.turlar })
-              }
-            />
-            <label>{language === 'az' ? 'Turlar' : 'Tours'}</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              checked={services.kendteserrufatimehhsullari}
-              onChange={() =>
-                setServices({
-                  ...services,
-                  kendteserrufatimehhsullari: !services.kendteserrufatimehhsullari,
-                })
-              }
-            />
-            <label>{language === 'az' ? 'Kənd Təsərrüfatı Məhsulları' : 'Agricultural Products'}</label>
-          </div>
         </div>
       </div>
 
@@ -157,6 +83,7 @@ function Services() {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "../Style/Main.css";
+import "../Style/Components/Main.css";
 import { useLanguage } from "../LanguageContext";
 function Main() {
   const [currentIndex, setCurrentIndex] = useState(0);

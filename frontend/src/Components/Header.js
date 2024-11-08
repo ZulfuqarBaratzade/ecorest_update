@@ -85,12 +85,14 @@ function Header() {
           <div className={`signup ${isMenuOpen ? "active" : ""}`}>
             {user ? (
               <>
+              <Link to="/profile" className="profile-button">
                 <span className="user-email">{user.firstname}</span>
                 {user.user_option === "Xidmət sahibi" && (
-                  <Link to="/profile" className="profile-button">
+                  
                     <i class="fa-solid fa-user"></i>
-                  </Link>
+                  
                 )}
+                </Link>
 
                 <button className="logout-button" onClick={handleLogout}>
                   <i class="fa-regular fa-circle-xmark"></i>

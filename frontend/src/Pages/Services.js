@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../Style/Services.css";
+import LeftImg from "../images/wallpaper.avif";
 import { useLanguage } from "../LanguageContext";
 
 function Services() {
   const [location, setLocation] = useState("");
   const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const { language } = useLanguage();
-  const [guestCount, setGuestCount] = useState("");
-  const [services, setServices] = useState({
-    qonaqlama: false,
-    metbex: false,
-    turlar: false,
-    kendteserrufatimehhsullari: false,
-  });
-  const [result, setResult] = useState("");
   const [hostelItems, setHostelItems] = useState([]);
   const [organicItems, setOrganicItems] = useState([]);
   const [eventItems, setEventItems] = useState([]);
@@ -71,19 +65,6 @@ function Services() {
     );
   }, [language]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const servicesSelected = Object.keys(services)
-      .filter((service) => services[service])
-      .join(", ");
-    const resultText = `${location}, ${
-      language === "az" ? "Başlama tarixi" : "Start date"
-    }: ${startDate}, ${guestCount} ${
-      language === "az" ? "qonaq sayı" : "guest count"
-    }, ${servicesSelected}`;
-    setResult(resultText);
-  };
-
   const handleServiceClick = (id, serviceType) => {
     switch (serviceType) {
       case "hostels":
@@ -109,22 +90,26 @@ function Services() {
   };
 
   const determineServiceType = (item) => {
-    if (hostelItems.some(hostel => hostel.id === item.id)) {
+    if (hostelItems.some((hostel) => hostel.id === item.id)) {
       return "hostels";
-    } else if (organicItems.some(organic => organic.id === item.id)) {
+    } else if (organicItems.some((organic) => organic.id === item.id)) {
       return "organicpro";
-    } else if (eventItems.some(event => event.id === item.id)) {
+    } else if (eventItems.some((event) => event.id === item.id)) {
       return "events";
-    } else if (kitchenItems.some(kitchen => kitchen.id === item.id)) {
+    } else if (kitchenItems.some((kitchen) => kitchen.id === item.id)) {
       return "kitchen";
     } else {
       return "unknown";
     }
   };
-  
 
   // Merge all items together for pagination
-  const allItems = [...hostelItems, ...organicItems, ...eventItems, ...kitchenItems];
+  const allItems = [
+    ...hostelItems,
+    ...organicItems,
+    ...eventItems,
+    ...kitchenItems,
+  ];
 
   // Pagination logic
   const lastItemIndex = currentPage * itemsPerPage;
@@ -144,134 +129,108 @@ function Services() {
       setCurrentPage(currentPage - 1);
     }
   };
+  const [minDate, setMinDate] = useState("");
+
+  useEffect(() => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    setMinDate(`${year}-${month}-${day}`);
+  }, []);
+  console.log(currentItems)
 
   return (
-    <div className="services-page">
-      <div className="left-filter">
-        <div className="left-search">
-          <h2>{language === "az" ? "Axtarış" : "Search"}</h2>
-          <form onSubmit={handleSubmit}>
-            <label>{language === "az" ? "Məkan" : "Location"}</label>
-            <select
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            >
-              <option value="">
-                {language === "az" ? "Məkan seçin" : "Select a location"}
-              </option>
-              {allItems.map((item) => (
-                <option key={item.id} value={item.location}>
-                  {item.location}
-                </option>
-              ))}
-            </select>
-
-            <label>{language === "az" ? "Başlama tarixi" : "Start Date"}</label>
-            <input
-              type="date"
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-            />
-            <label>{language === "az" ? "Qonaq sayı" : "Guest Count"}</label>
-            <input
-              type="number"
-              min={1}
-              value={guestCount}
-              onChange={(e) => setGuestCount(e.target.value)}
-            />
-            <button type="submit">
-              {language === "az" ? "Axtar" : "Search"}
-            </button>
-          </form>
-        </div>
-        <div className="left-input">
-          <h2>{language === "az" ? "Xidmətlər" : "Services"}</h2>
-          <div>
-            <input
-              type="checkbox"
-              checked={services.qonaqlama}
-              onChange={() =>
-                setServices({ ...services, qonaqlama: !services.qonaqlama })
-              }
-            />
-            <label>{language === "az" ? "Qonaqlama" : "Accommodation"}</label>
+    <div className="container">
+      <div className="services-page">
+        <div className="left-filter">
+          <div className="left-image">
+            <img src={LeftImg} alt="This is cover photo"/>
           </div>
-          <div>
-            <input
-              type="checkbox"
-              checked={services.metbex}
-              onChange={() =>
-                setServices({ ...services, metbex: !services.metbex })
-              }
-            />
-            <label>{language === "az" ? "Mətbəx" : "Kitchen"}</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              checked={services.turlar}
-              onChange={() =>
-                setServices({ ...services, turlar: !services.turlar })
-              }
-            />
-            <label>{language === "az" ? "Turlar" : "Tours"}</label>
-          </div>
-          <div>
-            <input
-              type="checkbox"
-              checked={services.kendteserrufatimehhsullari}
-              onChange={() =>
-                setServices({
-                  ...services,
-                  kendteserrufatimehhsullari:
-                    !services.kendteserrufatimehhsullari,
-                })
-              }
-            />
-            <label>
+          <div className="left-search">
+            <h2>
               {language === "az"
-                ? "Kənd Təsərrüfatı Məhsulları"
-                : "Agricultural Products"}
-            </label>
+                ? "İstirahət günlərinizi rəngarəng edin, özünüzə yeni və maraqlı bir macəra yaşadın!"
+                : "Brighten up your weekend with a new and exciting adventure!"}
+            </h2>
+            <form>
+              <select
+                value={location}
+                onChange={(e) => setLocation(e.target.value)}
+              >
+                <option value="">
+                  {language === "az" ? "Məkan seçin" : "Select a location"}
+                </option>
+                {allItems.map((item) => (
+                  <option key={item.id} value={item.location}>
+                    {item.location}
+                  </option>
+                ))}
+              </select>
+              <input
+                type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                min={minDate}
+              />
+              <input
+                type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+                min={minDate}
+              />
+              <button type="submit">
+                {language === "az" ? "Axtar" : "Search"}
+              </button>
+            </form>
           </div>
         </div>
-      </div>
 
-      <div className="right-services">
-        <div className="search-info">
-          <h2>{result}</h2>
-        </div>
+        <div className="right-services">
+      
 
-        {currentItems.map((item) => (
-          <div className="service-option" key={item.id}>
-            <div className="service-img">
-              <img
-                src={item.image_url}
-                alt={item.name}
-                onClick={() => handleServiceClick(item.id, determineServiceType(item))}
-              />
-            </div>
-            <div className="service-info">
-              <h2>{item.product_name}</h2>
-              <p>{item.name}</p>
-              <p>{item.location}</p>
-              <div className="service-price">
-                <h3>{item.price} AZN</h3>
+          {currentItems.map((item) => (
+            <div className="service-option" key={item.id}>
+              <div className="service-img">
+                <img
+                  src={item.image_url}
+                  alt={item.name}
+                  onClick={() =>
+                    handleServiceClick(item.id, determineServiceType(item))
+                  }
+                />
+              </div>
+            
+              <div className="service-info">
+                <h2>{item.product_name}</h2>
+                <p><i>{item.name}</i></p>
+                <p>{item.product_detail}</p>
+                <p>{item.location}</p>
+                <div className="service-price">
+                  <h3>{item.price} AZN</h3>
+                </div>
               </div>
               <div className="service-detail">
-                <button type="submit" onClick={() => determineServiceType(item)}>
-                  {language === 'az' ? 'Ətraflı' : 'Details'}
-                </button>
-              </div>
+                  <button
+                    type="submit"
+                    onClick={() => determineServiceType(item)}
+                  >
+                    {language === "az" ? "Ətraflı" : "Details"}
+                  </button>
+                  <p>{language === "az" ? "Qiymətləri görmək üçün tarixləri daxil edin" : "Enter dates to see prices"}</p>
+                </div>
+             
             </div>
-          </div>
-        ))}
-
+          ))}
+        </div>
         <div className="pagination">
           <button onClick={handlePreviousPage} disabled={currentPage === 1}>
             {language === "az" ? "Əvvəlki" : "Previous"}
           </button>
-          <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+          >
             {language === "az" ? "Sonrakı" : "Next"}
           </button>
         </div>
