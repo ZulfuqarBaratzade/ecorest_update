@@ -2,17 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../Style/Services.css";
 import { useLanguage } from "../LanguageContext";
+import HostelImg from '../images/hostels.avif'
 
 function HostelPro() {
   const [location, setLocation] = useState("");
   const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const { language } = useLanguage();
-  const [services, setServices] = useState({
-    qonaqlama: false,
-    metbex: false,
-    turlar: false,
-    kendteserrufatimehhsullari: false,
-  });
   const [result, setResult] = useState("");
   const [hostelItems, setHostelItems] = useState([]);
 
@@ -34,16 +30,6 @@ function HostelPro() {
       );
   }, [language]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const servicesSelected = Object.keys(services)
-      .filter((service) => services[service])
-      .join(", ");
-    const resultText = `${location}, ${
-      language === "az" ? "Başlama tarixi" : "Start date"
-    }: ${startDate},${servicesSelected}`;
-    setResult(resultText);
-  };
 
   const handleServiceClick = (id) => {
     navigate(`/services/hostels/${id}`);
@@ -72,10 +58,12 @@ function HostelPro() {
     <div className="container">
       <div className="services-page">
         <div className="left-filter">
+        <div className="left-image">
+            <img src={HostelImg} alt="This is cover photo"/>
+          </div>
           <div className="left-search">
             <h2>{language === "az" ? "Axtarış" : "Search"}</h2>
-            <form onSubmit={handleSubmit}>
-              <label>{language === "az" ? "Məkan" : "Location"}</label>
+            <form>
               <select
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
@@ -89,13 +77,15 @@ function HostelPro() {
                   </option>
                 ))}
               </select>
-              <label>
-                {language === "az" ? "Başlama tarixi" : "Start Date"}
-              </label>
               <input
                 type="date"
                 value={startDate}
                 onChange={(e) => setStartDate(e.target.value)}
+              />
+              <input
+                type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
               />
               <button type="submit">
                 {language === "az" ? "Axtar" : "Search"}
