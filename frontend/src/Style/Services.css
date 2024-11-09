@@ -199,21 +199,34 @@
     .service-img{
         max-width: 100%;
     }
-    .left-search select,.left-search input, .left-search button {
-        width:100%;
-        
-    }
+    
     .service-info{
         align-items: center;
         justify-content: center;
         text-align: center;
-        border: 1px solid;
         /* width: 300px; */
+    }
+    .left-search form>select,.left-search form > input, .left-search form > button {
+        width:100%;
+        
     }
 }
 @media screen and (max-width: 768px) {
     .service-info{
         width:300px;
+    }
+
+    .left-image, .left-filter h2{
+        display: none;
+    }
+    .left-search form,.left-search{
+        flex-direction: column;
+        
+    
+    }
+    .left-search button{
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
    
 }

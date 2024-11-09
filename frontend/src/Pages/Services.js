@@ -138,7 +138,6 @@ function Services() {
     const day = String(today.getDate()).padStart(2, "0");
     setMinDate(`${year}-${month}-${day}`);
   }, []);
-  console.log(currentItems)
 
   return (
     <div className="container">

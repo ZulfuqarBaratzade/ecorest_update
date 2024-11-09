@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../Style/Services.css";
-import { useLanguage } from '../LanguageContext'; // Dil kontekstini daxil edin
-
+import { useLanguage } from '../LanguageContext'; 
+import organicImg from '../images/organic.avif'
 function OrganicPro() {
   const [location, setLocation] = useState("");
   const [startDate, setStartDate] = useState("");
-  const [result, setResult] = useState("");
-  const [organicItems, setOrganicItems] = useState([]); // Organik ürünler için state
+  const [endDate, setEndDate] = useState("");
+  const [organicItems, setOrganicItems] = useState([]); 
   const navigate = useNavigate();
   const { language } = useLanguage();
 
@@ -23,32 +23,48 @@ function OrganicPro() {
   const handleServiceClick = (id) => {
     navigate(`/services/organicpro/${id}`);
   };
+  const [minDate, setMinDate] = useState("");
+
+  useEffect(() => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    setMinDate(`${year}-${month}-${day}`);
+  }, []);
 
   return (
     <div className="services-page">
       <div className="left-filter">
+      <div className="left-image">
+            <img src={organicImg} alt="This is cover photo"/>
+          </div>
         <div className="left-search">
-          <h2>{language === 'az' ? 'Axtarış' : 'Search'}</h2>
+          <h2>{language === 'az' ? "Kənd təsərrüfatı məhsulları sifariş edə bilərsiniz." :"You can order agricultural products."}</h2>
           <form>
-          <label>{language === 'az' ? 'Məkan' : 'Location'}</label>
           <select
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             >
               <option value="">{language === 'az' ? 'Məkan seçin' : 'Select a location'}</option>
               
-              {/* Veritabanından gelen lokasyonları dinamik olarak ekliyoruz */}
               {organicItems.map((item) => (
                 <option key={item.id} value={item.location}>
-                  {item.location} {/* Lokasyonu göster */}
+                  {item.location}
                 </option>
               ))}
         </select>
-            <label>{language === 'az' ? 'Başlama tarixi' : 'Start Date'}</label>
             <input
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
+              min={minDate}
+            />
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              min={minDate}
             />
             <button type="submit">{language === 'az' ? 'Axtar' : 'Search'}</button>
           </form>
@@ -57,10 +73,7 @@ function OrganicPro() {
       </div>
 
       <div className="right-services">
-        <div className="search-info">
-          <h2>{result}</h2>
-        </div>
-
+        
         {organicItems.map((item) => (
           <div className="service-option" key={item.id}>
             <div className="service-img">
@@ -71,18 +84,22 @@ function OrganicPro() {
               />
             </div>
             <div className="service-info">
-              <h2>{item.name}</h2>
+              <h2>{item.product_name}</h2>
+              <p><i>{item.name}</i></p>
+              <p>{item.product_detail}</p>
               <p>{item.location}</p>
               <div className="service-price">
                 <h3>{item.price} AZN</h3>
               </div>
-              <div className="service-detail">
+              
+
+            </div>
+            <div className="service-detail">
                 <button type="submit" onClick={() => handleServiceClick(item.id)}>
                 {language === 'az' ? 'Ətraflı' : 'Details'}
                 </button>
               </div>
-
-            </div>
+            
           </div>
         ))}
 

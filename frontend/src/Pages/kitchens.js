@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../Style/Services.css";
 import { useLanguage } from '../LanguageContext';
+import kitchens from '../images/kitchens.jpg'
 function Services() {
   const [location, setLocation] = useState("");
   const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const { language } = useLanguage();
-  const [result, setResult] = useState("");
-  const [serviceItems, setServiceItems] = useState([]); // Hizmet verileri için state
+  const [serviceItems, setServiceItems] = useState([]); 
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Örneğin, mutfak hizmetleri için veri çekme
+
     fetch('https://ecorest.az/backend/get_kitchen_items.php')
       .then(response => response.json())
       .then(data => setServiceItems(data))
@@ -20,15 +21,26 @@ function Services() {
   const handleServiceClick = (id) => {
     navigate(`/services/kitchen/${id}`);
   };
+  const [minDate, setMinDate] = useState("");
 
+  useEffect(() => {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+    setMinDate(`${year}-${month}-${day}`);
+  }, []);
   return (
     <div className="container">
     <div className="services-page">
       <div className="left-filter">
+      <div className="left-image">
+            <img src={kitchens} alt="This is cover photo"/>
+          </div>
         <div className="left-search">
-          <h2>{language === 'az' ? 'Axtarış' : 'Search'}</h2>
+        
+          <h2>{language ==='az' ? 'Bəzən sadəcə fərqli bir dadı yaşamaq üçün, yalnız o yemək üçün yola çıxa bilərsiniz.':'Sometimes, just to experience a unique flavor, you might set out on a journey for that one special dish.'}</h2>
           <form>
-            <label>{language === 'az' ? 'Məkan' : 'Location'}</label>
             <select
                 value={location}
                 onChange={(e) => setLocation(e.target.value)}
@@ -42,11 +54,17 @@ function Services() {
                   </option>
                 ))}
         </select>
-            <label>{language === 'az' ? 'Başlama tarixi' : 'Start Date'}</label>
             <input
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
+              min={minDate}
+            />
+            <input
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+              min={minDate}
             />
            <button type="submit">{language === 'az' ? 'Axtar' : 'Search'}</button>
           </form>
@@ -54,10 +72,6 @@ function Services() {
       </div>
 
       <div className="right-services">
-        <div className="search-info">
-          <h2>{result}</h2>
-        </div>
-
         {serviceItems.map((item) => (
           <div className="service-option" key={item.id}>
             <div className="service-img">
@@ -68,18 +82,20 @@ function Services() {
               />
             </div>
             <div className="service-info">
-              <h2>{item.name}</h2>
-              <p>{item.description}</p>
+              <h2>{item.product_name}</h2>
+              <p><i>{item.name}</i></p>
+              <p>{item.product_detail}</p>
+
               <div className="service-price">
                 <h3>{item.price} AZN</h3>
-                <p>{item.quantity}</p>
               </div>
-              <div className="service-detail">
+              
+            </div>
+            <div className="service-detail">
                 <button type="submit" onClick={() => handleServiceClick(item.id)}>
                   {language === 'az' ? 'Ətraflı' : 'Details'}
                 </button>
               </div>
-            </div>
           </div>
         ))}
       </div>

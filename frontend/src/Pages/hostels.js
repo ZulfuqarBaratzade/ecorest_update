@@ -62,7 +62,9 @@ function HostelPro() {
             <img src={HostelImg} alt="This is cover photo"/>
           </div>
           <div className="left-search">
-            <h2>{language === "az" ? "Axtarış" : "Search"}</h2>
+            <h2>{language === "az"
+              ? "Yeni yerlərdə qalaraq istirahət edin və kəşf edin, hər anın dadını çıxarın!"
+              : "Relax and explore by staying in new places, savoring every moment!"}</h2>
             <form>
               <select
                 value={location}
@@ -110,12 +112,14 @@ function HostelPro() {
               </div>
               <div className="service-info">
                 <h2>{item.product_name}</h2>
-                <p>{item.name}</p>
+                <p><i>{item.name}</i></p>
+                <p>{item.product_detail}</p>
                 <p>{item.location}</p>
                 <div className="service-price">
                   <h3>{item.price} AZN</h3>
                 </div>
-                <div className="service-detail">
+              </div>
+              <div className="service-detail">
                   <button
                     type="submit"
                     onClick={() => handleServiceClick(item.id)}
@@ -123,7 +127,6 @@ function HostelPro() {
                     {language === "az" ? "Ətraflı" : "Details"}
                   </button>
                 </div>
-              </div>
             </div>
           ))}
 
