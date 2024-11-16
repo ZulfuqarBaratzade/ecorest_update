@@ -19,6 +19,7 @@ import OrganicPro from './Pages/Organicpro';
 import HostelsQ from './Pages/hostels';
 import Footer from './Components/Footer';
 import { LanguageProvider } from './LanguageContext';
+import Profile_detail from './Pages/Profile_detail';
 function App() {
   return (
     <div className="App">
@@ -45,7 +46,7 @@ function App() {
           <Route path="/news/:id" element={<News />} />
           <Route path='/approve' element={<Approve />} />
           <Route path='/contract' element={<TermsCon />} />
-          
+          <Route path='/profile_detail' element={<Profile_detail />} />
         </Routes>
         <Footer />
         </LanguageProvider>

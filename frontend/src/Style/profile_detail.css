@@ -1,0 +1,51 @@
+.personal-profile{
+    border: 1px solid;
+    min-width: 1600px;
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+.aside_profile{
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.profile_pic{
+    text-align: center;
+    font-size: 20px;
+}
+.profile_pic p{
+    margin-top: 10px;
+    font-weight: 500;
+}
+.profile_pic img{
+    border: 1px solid;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.personal_information{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    margin-top: 50px;
+    border: 1px solid #ccc;
+    width: 100%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+
+}
+.personal_information h2{
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 50px;
+}
+.personal_information h4{
+    font-size: 24px;
+    font-weight: 600;
+}

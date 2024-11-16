@@ -33,7 +33,6 @@ function Hostels() {
   const scrollRight = () => {
       scrollRef.current.scrollBy({ left: 500, behavior: "smooth" });
   };
-
   return (
     <div className="container">
       <div className="hostels">
@@ -59,7 +58,7 @@ function Hostels() {
               onClick={() => handleHostelClick(hostel.id)}
             >
               <div className="hostel-img">
-                <img src={hostel.image_url} alt={hostel.product_name} />
+                <img src={hostel.image_url[0]} alt={hostel.product_name} />
               </div>
               <div className="hostel-content">
                 <p>{hostel.location}</p>
