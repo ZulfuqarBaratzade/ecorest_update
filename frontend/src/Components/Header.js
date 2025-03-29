@@ -42,7 +42,6 @@ function Header() {
   };
 
   return (
-    <div className="container">
       <div className="header">
         <div className="logo">
           <Link to={"/"}>
@@ -58,20 +57,20 @@ function Header() {
           <ul className="nav-content">
             <li>
               <Link to={"/services"}>
-                {language === "az" ? "Xidmətlərimiz" : "Our Services"}
+                {language === "az" ? "xidmətlərimiz" : "our services"}
               </Link>
             </li>
             <li>
-              <Link to={"/blogs"}>{language === "az" ? "Bloq" : "Blog"}</Link>
+              <Link to={"/blogs"}>{language === "az" ? "bloq" : "blog"}</Link>
             </li>
             <li>
               <a href="/" onClick={(e) => handleScrollClick(e, "faq")}>
-                FAQ
+                faq
               </a>
             </li>
             <li>
               <a href="/" onClick={(e) => handleScrollClick(e, "contact")}>
-                {language === "az" ? "Əlaqə" : "Contact"}
+                {language === "az" ? "əlaqə" : "contact"}
               </a>
             </li>
           </ul>
@@ -100,7 +99,7 @@ function Header() {
               </>
             ) : (
               <div className="dropdown">
-                <a href="#">
+                <a href="#" className="sign_icon">
                   <i className="fa-regular fa-user"></i>
                 </a>
                 <ul className="dropdown-menu">
@@ -120,7 +119,6 @@ function Header() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

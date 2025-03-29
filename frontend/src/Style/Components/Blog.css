@@ -1,8 +1,3 @@
-/* Header.css */
-.row {
-    min-width: 1600px;
-    min-height: 650px;
-}
 
 .blog-banner {
     width: 100%;
@@ -84,72 +79,4 @@
     border-radius: 12px;
 }
 
-/* Responsive Design */
-@media screen and (max-width: 1500px) {
-    .row {
-        min-width: 100%;
-    }
-    .blog-poster {
-        width: 400px;
-    }
-    .blog-title {
-        font-size: 2rem;
-    }
-    .blog-content {
-        gap: 50px;
-    }
-}
 
-@media screen and (max-width: 768px) {
-    .row {
-        min-width: 100%;
-    }
-    .blog-content {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .blog-poster {
-        width: 100%;
-        padding: 20px;
-    }
-    .blog-title {
-        font-size: 1.8rem;
-    }
-    .blog-text a {
-        padding: 5px 50px;
-        top: 90%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .blog-image {
-        max-width: 500px;
-        min-width: 280px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .row {
-        min-width: 100%;
-    }
-    
-    .blog-poster {
-        width: 100%;
-        padding: 10px;
-    }
-    .blog-title {
-        font-size: 1.5rem;
-    }
-    .blog-text {
-        font-size: 0.9rem;
-    }
-    .blog-text a {
-        padding: 5px 40px;
-        top: 85%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .blog-image {
-        max-width: 100%;
-        min-width: 200px;
-    }
-}

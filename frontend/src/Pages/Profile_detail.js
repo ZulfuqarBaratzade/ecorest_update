@@ -4,7 +4,6 @@ import { useLanguage } from "../LanguageContext";
 function Profile_detail() {
   const { language } = useLanguage();
   return (
-    <div className="container">
       <div className="personal-profile">
         <div className="aside_profile">
           <div className="profile_pic">
@@ -140,7 +139,6 @@ function Profile_detail() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 export default Profile_detail;

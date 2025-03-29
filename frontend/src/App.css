@@ -3,9 +3,14 @@
     padding: 0;
     margin: 0;
 }
+
 .container{
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    border-bottom: 1px solid #f0f0f0;
-
-  }
+}
+.row{
+    max-width: 1600px;
+    width: 100%;
+}

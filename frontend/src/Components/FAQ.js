@@ -17,7 +17,6 @@ const FAQ = () => {
   };
 
   return (
-    <div className="container">
       <div className="faq-container" id="faq">
         <h2>FAQ</h2>
         {faqs.map((faq, index) => (
@@ -36,7 +35,6 @@ const FAQ = () => {
           </div>
         ))}
       </div>
-    </div>
   );
 };
 

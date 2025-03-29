@@ -34,7 +34,6 @@ function Hostels() {
       scrollRef.current.scrollBy({ left: 500, behavior: "smooth" });
   };
   return (
-    <div className="container">
       <div className="hostels">
         <div className="hostels-heads">
           <h2>{language === "az" ? "Qonaqlama" : "Hostels"}</h2>
@@ -58,7 +57,7 @@ function Hostels() {
               onClick={() => handleHostelClick(hostel.id)}
             >
               <div className="hostel-img">
-                <img src={hostel.image_url[0]} alt={hostel.product_name} />
+                <img src={hostel.image_url} alt={hostel.product_name} />
               </div>
               <div className="hostel-content">
                 <p>{hostel.location}</p>
@@ -70,7 +69,6 @@ function Hostels() {
           ))}
         </div>
       </div>
-    </div>
   );
 }
 

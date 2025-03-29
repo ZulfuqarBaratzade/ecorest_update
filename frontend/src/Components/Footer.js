@@ -11,7 +11,6 @@ function Footer() {
   };
 
   return (
-    <div className="container">
       <div className="footer">
         <div className="footer-logo">
           <img src={logo} alt="Logo" />
@@ -93,7 +92,6 @@ function Footer() {
           </ul>
         </div>
       </div>
-    </div>
   );
 }
 

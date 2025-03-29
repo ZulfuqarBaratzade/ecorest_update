@@ -35,7 +35,6 @@ function Events() {
     };
     
     return (
-        <div className="container">
             <div className="tours">
                 <div className="tours-heads">
                     <h2>{language === 'az' ? "Turlar və Masterklaslar" : "Tours and Masterclass"}</h2>
@@ -59,7 +58,6 @@ function Events() {
                     ))}
                 </div>
             </div>
-        </div>
     );
 }
 

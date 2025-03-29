@@ -31,7 +31,6 @@ function Services() {
     setMinDate(`${year}-${month}-${day}`);
   }, []);
   return (
-    <div className="container">
     <div className="services-page">
       <div className="left-filter">
       <div className="left-image">
@@ -99,7 +98,6 @@ function Services() {
           </div>
         ))}
       </div>
-    </div>
     </div>
   );
 }

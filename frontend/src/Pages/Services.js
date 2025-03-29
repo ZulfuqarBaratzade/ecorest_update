@@ -140,7 +140,6 @@ function Services() {
   }, []);
 
   return (
-    <div className="container">
       <div className="services-page">
         <div className="left-filter">
           <div className="left-image">
@@ -234,7 +233,6 @@ function Services() {
           </button>
         </div>
       </div>
-    </div>
   );
 }
 

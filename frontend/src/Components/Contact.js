@@ -57,7 +57,6 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="container">
       <div className="contact" id="contact">
         <h2>{language === "az" ? "Bizimlə Əlaqə" : "Contact Us"}</h2>
         <form onSubmit={handleSubmit} className="contact-form">
@@ -100,7 +99,6 @@ const ContactForm = () => {
           <p className="response-message">{responseMessage}</p>
         )}
       </div>
-    </div>
   );
 };
 

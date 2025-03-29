@@ -47,7 +47,6 @@ function Kitchen() {
     };
 
     return (
-        <div className="container">
             <div className="kitchen">
                 <div className="kitchen-heads">
                     <h2>{language === 'az' ? 'Mətbəx' : 'Kitchen'}</h2>
@@ -76,7 +75,6 @@ function Kitchen() {
                     ))}
                 </div>
             </div>
-        </div>
     );
 }
 

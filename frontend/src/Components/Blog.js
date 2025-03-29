@@ -19,8 +19,6 @@ function Blog() {
   }, [blogs.length]);
 
   return (
-    <div className="container">
-      <div className="row">
       <div className="blog-banner">
         {blogs.map((banner, index) => (
           <div
@@ -46,8 +44,6 @@ function Blog() {
           </div>
         ))}
       </div>
-      </div>
-    </div>
   );
 }
 

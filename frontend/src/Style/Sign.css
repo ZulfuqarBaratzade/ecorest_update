@@ -7,7 +7,6 @@
 .sign {
     width: 90%;
     max-width: 1000px;
-    /* transform: translate(50%, 50%); */
     text-align: center;
     display: flex;
     align-items: center;
@@ -20,8 +19,8 @@
     display: flex;
     flex-direction: column;
     width: 100%; 
-    max-width: 600px; /* Maximum width for large screens *//* Auto height for flexibility */
-    gap: 15px; /* Increased gap for better spacing */
+    max-width: 600px; 
+    gap: 15px;
     padding: 20px; /* Added padding for better spacing */
     box-sizing: border-box; /* Ensure padding is included in width/height */
 }

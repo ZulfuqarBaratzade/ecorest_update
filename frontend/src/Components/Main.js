@@ -21,7 +21,7 @@ function Main() {
       .catch((error) =>
         console.error(
           language === "az"
-            ? "Haberler yüklənə bilmədi:"
+            ? "Haberler yüklənə bilmə24pxdi:"
             : "Failed to load news:",
           error
         )
@@ -63,7 +63,7 @@ function Main() {
       setCurrentIndex((prevIndex) =>
         prevIndex === newsList.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000);
+    }, 20000);
 
     return () => clearInterval(interval);
   }, [newsList.length]);
@@ -89,10 +89,9 @@ function Main() {
   };
 
   return (
-    <div className="container">
       <div className="main">
         <div className="main-search">
-          {/* <h2>Test</h2> */}
+          <h2 className="logo_motiv">Hər addımda yeni gözəlliklərlə tanış olun...</h2>
           <ul>
             <Link to={"/services/"}>
               <li>
@@ -206,13 +205,14 @@ function Main() {
               />
               <div className="banner-con">
                 <h2>{news_banner.location}</h2>
-                <a href="#">{language === "az" ? "Ətraflı" : "Read more"}</a>
+                <p>{news_banner.name}</p>
+                {/* <p>{news_banner.price}</p> */}
+                {/* <a href="#">{language === "az" ? "Ətraflı" : "Read more"}</a> */}
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
   );
 }
 

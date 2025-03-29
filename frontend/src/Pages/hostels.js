@@ -55,7 +55,6 @@ function HostelPro() {
   };
 
   return (
-    <div className="container">
       <div className="services-page">
         <div className="left-filter">
         <div className="left-image">
@@ -144,7 +143,6 @@ function HostelPro() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

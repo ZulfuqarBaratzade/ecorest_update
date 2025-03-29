@@ -44,7 +44,6 @@ function Organic() {
       };
     
     return (
-        <div className="container">
             <div className="organic">
                 <div className="organic-heads">
                     <h2>{language === 'az' ? "Kənd Təsərrüfatı Məhsulları" : "Agricultural Products"}</h2>
@@ -69,7 +68,6 @@ function Organic() {
                 </div>
            
             </div>
-        </div>
     );
 }
 
